@@ -4,11 +4,8 @@ const path = require('path');
 
 const port = process.argv[2];
 
-// 1. Фіксуємо абсолютний шлях до файлу (поки ми в папці тестера)
+// Фіксуємо абсолютний шлях до файлу (поки ми в папці тестера)
 const targetFile = path.join(process.cwd(), 'data.json');
-
-// 2. АНТИ-EPERM ТРЮК: Тікаємо з тимчасової папки, щоб зняти блокування Windows
-process.chdir('C:\\');
 
 const server = http.createServer((req, res) => {
   // Перевіряємо, чи це PUT запит і чи починається шлях з /data/
