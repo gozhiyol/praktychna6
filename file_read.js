@@ -4,7 +4,7 @@ const path = require('path');
 
 const port = process.argv[2];
 
-// 1. Запам'ятовуємо абсолютний шлях до файлу (поки ми ще в тимчасовій папці тестера)
+//  Запам'ятовуємо абсолютний шлях до файлу (поки ми ще в тимчасовій папці тестера)
 const targetFile = path.join(process.cwd(), 'data.json');
 
 const server = http.createServer((req, res) => {
