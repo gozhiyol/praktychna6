@@ -4,11 +4,8 @@ const path = require('path');
 
 const port = process.argv[2];
 
-// 1. Запам'ятовуємо шлях до data.json у поточній папці тестера
+// Запам'ятовуємо шлях до data.json у поточній папці тестера
 const targetFile = path.join(process.cwd(), 'data.json');
-
-// 2. АНТИ-EPERM ТРЮК: Змінюємо робочу директорію, щоб розблокувати папку для Windows
-process.chdir('C:\\');
 
 const server = http.createServer((req, res) => {
   if (req.method === 'POST' && req.url === '/data') {
