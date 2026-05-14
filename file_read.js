@@ -7,10 +7,6 @@ const port = process.argv[2];
 // 1. Запам'ятовуємо абсолютний шлях до файлу (поки ми ще в тимчасовій папці тестера)
 const targetFile = path.join(process.cwd(), 'data.json');
 
-// 2. АНТИ-EPERM ТРЮК: Змінюємо робочу директорію процесу на диск С:\
-// Це миттєво знімає системне блокування з тимчасової папки!
-process.chdir('C:\\');
-
 const server = http.createServer((req, res) => {
   if (req.method === 'GET' && req.url === '/data') {
     try {
